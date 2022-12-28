@@ -1,6 +1,6 @@
-import React, {useState}from 'react'
+import React, {useState} from 'react'
 
-export default function Textform() {
+export default function Textform(props) {
     let [text,setText]=useState("");
     let [btnText,setBtnText]=useState("Copy text")
     const handleUpClick=()=>{
@@ -10,6 +10,7 @@ export default function Textform() {
     }
     const handleChange=(e)=>{
         setText(e.target.value);
+        setBtnText('Copy text')
     }
     const handleLowClick=()=>{
         let newText=text.toLowerCase()
@@ -29,19 +30,22 @@ export default function Textform() {
         else{
             setText('')
         }
-        setBtnText('Copied to clipboard')
+        setBtnText('Copy text')
 
     }
     const handleCopy=()=>{
         navigator.clipboard.writeText(text);
         setBtnText('Copied to clipboard')
     }
+    const darkText={color:'black'}
+    const lightText={color:'white'}
+
   return (
    <>
-    <div className='container'>
-        <h1 className='display-6 text-center'>Enter the text to analyze below.</h1>
+    <div className='container'  >
+        <h1 className='display-6 text-center' style={props.mode==='dark'?lightText:darkText}>Enter the text to analyze below.</h1>
       <div className="my-3">
-  <textarea className="form-control mb-2" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleChange}></textarea>
+  <textarea style={props.mode==='dark'?{backgroundColor:'black',color:'white'}:{backgroundColor:'white',color:'black'}}  className="form-control mb-2" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleChange}></textarea>
   <button className="btn btn-secondary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
   <button className="btn btn-secondary mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
   <button className="btn btn-secondary mx-1" onClick={handleEmailClick}>Purify Emails</button>
@@ -49,10 +53,10 @@ export default function Textform() {
   <button id='copy' className="btn btn-secondary mx-1" onClick={handleCopy} >{btnText}</button>
 </div>
     </div>
-    <div className="container my-3">
-        <h1 className='lead'>Your text summary</h1>
-        <p> <span className='display-6'>{text.split(" ").length-1}</span> words, <span className='display-6'>{text.length}</span>characters</p>
-        <p>Average time to read the above text : {text.split(" ").length/125} minutes</p>
+    <div className="container my-3" style={props.mode==='dark'?lightText:darkText} >
+        <h1 className='lead' style={props.mode==='dark'?lightText:darkText}>Your text summary</h1>
+        <p> <span className='display-6' style={props.mode==='dark'?lightText:darkText}>{text.split(" ").length-1}</span> words, <span className='display-6'>{text.length}</span>characters</p>
+        <p >Average time to read the above text : {text.split(" ").length/125} minutes</p>
         <h2>Preview:</h2>
         <p>{text}</p>
     </div>
