@@ -22,9 +22,33 @@ function App() {
     showAlert('light mode enabled')
   }
 }
+  const handleBluishTheme=()=>{
+    if(mode==='light'){
+      setMode('primary');
+      document.body.style.backgroundColor='rgb(155, 155, 226)'
+      showAlert('Bluish theme enabled')    
+    }
+    else{
+      setMode('light')
+      document.body.style.backgroundColor='white'
+      showAlert('light mode enabled')
+    }
+  }
+  const handleReddishTheme=()=>{
+    if(mode==='light'){
+      setMode('danger');
+      document.body.style.backgroundColor='#ff8c8c'
+      showAlert('Reddish theme enabled')    
+    }
+    else{
+      setMode('light')
+      document.body.style.backgroundColor='white'
+      showAlert('light mode enabled')
+    }
+  }
   return (
     <>
-<Nav mode={mode} toggleMode={toggleMode}/>
+<Nav mode={mode} toggleMode={toggleMode} handleBluishTheme={handleBluishTheme} handleReddishTheme={handleReddishTheme}/>
   <Intro description='Hello, Welcome to Text Utils App. Enjoy.' mode={mode}/>
   <div className="container">
   <Textform mode={mode} alertMsg={alert} showAlert={showAlert}/>

@@ -19,13 +19,18 @@ export default function Nav(props) {
         <li className="nav-item">
           <a className={`nav-link text-${props.mode==='light'?'dark':'light'}`} href="/">About Us</a>
         </li>
-      
+        <li className="nav-item">
+          <button className={`btn bg-none text-${props.mode==='light'?'dark':'light'}`} onClick={props.handleBluishTheme}>Toggle Bluish Theme</button>
+        </li>
+        <li className="nav-item">
+          <button className={`btn bg-none text-${props.mode==='light'?'dark':'light'}`} onClick={props.handleReddishTheme}>Toggle Reddish Theme</button>
+        </li>
+        
       </ul>
-
       <form  className="form-inline my-2 my-lg-0">
       <div  className="custom-control custom-switch">
   <input type="checkbox"  className="custom-control-input" onChange={props.toggleMode} id="customSwitch1"/>
-  <label  className={`custom-control-label text-${props.mode==='light'?'dark':'light'}`} htmlFor="customSwitch1">Enable dark mode</label>
+  <label  className={`custom-control-label text-${props.mode==='light'?'dark':'light'}`} htmlFor="customSwitch1">Dark mode</label>
 </div>
     </form>
     </div>
