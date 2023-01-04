@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 export default function Nav(props) {
   return (
     <div>
@@ -11,13 +12,13 @@ export default function Nav(props) {
     <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
       <ul className="navbar-nav text-light">
         <li className="nav-item">
-          <a className={`nav-link active text-${props.mode==='light'?'dark':'light'}`} aria-current="page" href="/">Home</a>
+          <Link className={`nav-link active text-${props.mode==='light'?'dark':'light'}`} aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-          <a className={`nav-link text-${props.mode==='light'?'dark':'light'}`} href="/">Features</a>
+          <Link className={`nav-link text-${props.mode==='light'?'dark':'light'}`} to="/other-products">Other Products</Link>
         </li>
         <li className="nav-item">
-          <a className={`nav-link text-${props.mode==='light'?'dark':'light'}`} href="/">About Us</a>
+          <Link className={`nav-link text-${props.mode==='light'?'dark':'light'}`} to="/about">About Us</Link>
         </li>
         <li className="nav-item">
           <button className={`btn bg-none text-${props.mode==='light'?'dark':'light'}`} onClick={props.handleBluishTheme}>Toggle Bluish Theme</button>

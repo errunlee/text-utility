@@ -2,7 +2,11 @@ import './App.css';
 import Nav from './components/Nav';
 import Intro from './components/Intro';
 import Textform from './components/Textform';
-import React,{useState} from 'react';
+import About from './components/About'
+import React,{Fragment, useState} from 'react';
+import Otherproducts from './components/Otherproducts';
+import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import Tqmessage from './components/Tqmessage';
 function App() {
   let [mode,setMode]=useState('light')
   let [alert,setAlert]=useState(null)
@@ -46,13 +50,20 @@ function App() {
       showAlert('light mode enabled')
     }
   }
-  return (
+    return (
     <>
+
+    <Router>
 <Nav mode={mode} toggleMode={toggleMode} handleBluishTheme={handleBluishTheme} handleReddishTheme={handleReddishTheme}/>
-  <Intro description='Hello, Welcome to Text Utils App. Enjoy.' mode={mode}/>
   <div className="container">
-  <Textform mode={mode} alertMsg={alert} showAlert={showAlert}/>
+    <Routes>
+      <Route exact path='/about'  element={<About/>}>
+      </Route>
+      <Route path='/' element={<><Intro description='Hello, Welcome to Text Utils App. Enjoy.' mode={mode}/><Textform mode={mode} alertMsg={alert} showAlert={showAlert}/></>}/>
+      <Route path='/other-products' element={<Otherproducts/>}/>  
+    </Routes>
   </div>
+  </Router> 
     </>
   );
 }
