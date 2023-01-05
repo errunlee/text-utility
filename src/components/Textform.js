@@ -51,10 +51,10 @@ export default function Textform(props) {
                 <div className="my-3 position-relative">
                     {props.alertMsg && <Alert message={props.alertMsg} />}
                     <textarea style={props.mode === 'dark' ? { backgroundColor: 'black', color: 'white' } : { backgroundColor: 'white', color: 'black' }} className={`form-control mb-2 bg-${props.mode} text-${props.mode==='light'?'dark':'light'}`}id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleChange}></textarea>
-                    <button className="btn btn-secondary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
-                    <button className="btn btn-secondary mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
-                    <button className="btn btn-secondary mx-1" onClick={handleEmailClick}>Purify Emails</button>
-                    <button className="btn btn-secondary mx-1" onClick={handleClear}>Clear Screen</button>
+                    <button className="btn btn-secondary mx-1 my-1" onClick={handleUpClick}>Convert to UpperCase</button>
+                    <button className="btn btn-secondary mx-1 my-1" onClick={handleLowClick}>Convert to Lowercase</button>
+                    <button className="btn btn-secondary mx-1 my-1" onClick={handleEmailClick}>Purify Emails</button>
+                    <button className="btn btn-secondary mx-1 my-1" onClick={handleClear}>Clear Screen</button>
                     <button id='copy' className="btn btn-secondary mx-1" onClick={handleCopy} >{btnText}</button>
                 </div>
             </div>
@@ -68,3 +68,4 @@ export default function Textform(props) {
         </>
     )
 }
+

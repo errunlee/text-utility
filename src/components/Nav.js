@@ -1,4 +1,5 @@
 import React from 'react'
+import '../App.css'
 import { Link } from 'react-router-dom'
 export default function Nav(props) {
   return (
@@ -9,7 +10,7 @@ export default function Nav(props) {
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+    <div className="collapse navbar-collapse d-flex  flex-column flex-lg-row align-items-start justify-content-between" id="navbarNav">
       <ul className="navbar-nav text-light">
         <li className="nav-item">
           <Link className={`nav-link active text-${props.mode==='light'?'dark':'light'}`} aria-current="page" to="/">Home</Link>
@@ -28,7 +29,7 @@ export default function Nav(props) {
         </li>
         
       </ul>
-      <form  className="form-inline my-2 my-lg-0">
+       <form  className="form-inline my-2">
       <div  className="custom-control custom-switch">
   <input type="checkbox"  className="custom-control-input" onChange={props.toggleMode} id="customSwitch1"/>
   <label  className={`custom-control-label text-${props.mode==='light'?'dark':'light'}`} htmlFor="customSwitch1">Dark mode</label>
@@ -38,5 +39,6 @@ export default function Nav(props) {
   </div>
 </nav>
     </div>
+
   )
 }

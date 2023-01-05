@@ -6,7 +6,7 @@ import About from './components/About'
 import React,{Fragment, useState} from 'react';
 import Otherproducts from './components/Otherproducts';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
-import Tqmessage from './components/Tqmessage';
+// import Tqmessage from './components/Tqmessage';
 function App() {
   let [mode,setMode]=useState('light')
   let [alert,setAlert]=useState(null)
@@ -57,10 +57,10 @@ function App() {
 <Nav mode={mode} toggleMode={toggleMode} handleBluishTheme={handleBluishTheme} handleReddishTheme={handleReddishTheme}/>
   <div className="container">
     <Routes>
-      <Route exact path='/about'  element={<About/>}>
+      <Route exact path='/about'  element={<About mode={mode}/>}>
       </Route>
       <Route path='/' element={<><Intro description='Hello, Welcome to Text Utils App. Enjoy.' mode={mode}/><Textform mode={mode} alertMsg={alert} showAlert={showAlert}/></>}/>
-      <Route path='/other-products' element={<Otherproducts/>}/>  
+      <Route path='/other-products' element={<Otherproducts mode={mode}/>}/>  
     </Routes>
   </div>
   </Router> 
